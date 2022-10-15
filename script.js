@@ -5,8 +5,6 @@ const computerPlay = () => {
     return computer[Math.floor(Math.random() * computer.length)];
 }
 
-
-
 // Function that accept two paramenters
 const playerSelection = window.prompt("Please Enter Value!");
 
