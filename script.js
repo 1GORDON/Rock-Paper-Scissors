@@ -5,13 +5,11 @@ const computerPlay = () => {
     return computer[Math.floor(Math.random() * computer.length)];
 }
 
-
-
 // Function that accept two paramenters
 const playerSelection = window.prompt("Please Enter Value!");
 
 const playGame = (playerSelection, computerSelection) => {
-    const convertedArray =  computer.map(value => value.toLowerCase())
+    let convertedArray =  computer.map(value => value.toLowerCase())
     if(convertedArray.includes(playerSelection.toLowerCase())){
         if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
             console.log(`You Win!:`);
