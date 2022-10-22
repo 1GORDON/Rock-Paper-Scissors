@@ -23,7 +23,7 @@ const game = () => {
 		playerOptions.forEach(option => {
 			option.addEventListener('click',function(){
 				rounds++;
-				roundsLeft.innerText = `Rounds Left: ${10-rounds}`;
+				roundsLeft.innerText = `Rounds Left: ${5-rounds}`;
 
 				const choiceNumber = Math.floor(Math.random()*3);
 				const computerChoice = computerOptions[choiceNumber];
