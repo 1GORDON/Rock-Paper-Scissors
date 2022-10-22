@@ -24,9 +24,8 @@ const game = () => {
 			option.addEventListener('click',function(){
 				rounds++;
 				roundsLeft.innerText = `Rounds Left: ${5-rounds}`;
-
-				const choiceNumber = Math.floor(Math.random()*3);
-				const computerChoice = computerOptions[choiceNumber];
+				
+				const computerChoice = computerOptions[Math.floor(Math.random()*3)];
 
 				// Function to check who wins
 				winner(this.innerText,computerChoice)
