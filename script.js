@@ -1,24 +1,29 @@
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorBtn = document.querySelector('.scissor');
+const playerOptions = [rockBtn,paperBtn,scissorBtn];
+const computerOptions = ['rock','paper','scissors']
+
+const result = document.querySelector('.result');
+const playerScoreBoard = document.querySelector('.player-count');
+const computerScoreBoard = document.querySelector('.computer-count');
+const roundsLeft = document.querySelector('.roundsleft');
+const chooseMove = document.querySelector('.move');
+const reloadBtn = document.querySelector('.reload');
+
 // Complete logic of game inside this function
 const game = () => {
 	let playerScore = 0;
 	let computerScore = 0;
-	let moves = 0;
+	let rounds = 0;
 
 	// Function to
 	const playGame = () => {
-		const rockBtn = document.querySelector('.rock');
-		const paperBtn = document.querySelector('.paper');
-		const scissorBtn = document.querySelector('.scissor');
-		const playerOptions = [rockBtn,paperBtn,scissorBtn];
-		const computerOptions = ['rock','paper','scissors']
-		
 		// Function to start playing game
 		playerOptions.forEach(option => {
 			option.addEventListener('click',function(){
-
-				const movesLeft = document.querySelector('.movesleft');
-				moves++;
-				movesLeft.innerText = `Moves Left: ${10-moves}`;
+				rounds++;
+				roundsLeft.innerText = `Rounds Left: ${10-rounds}`;
 
 				const choiceNumber = Math.floor(Math.random()*3);
 				const computerChoice = computerOptions[choiceNumber];
@@ -26,20 +31,16 @@ const game = () => {
 				// Function to check who wins
 				winner(this.innerText,computerChoice)
 				
-				// Calling gameOver function after 10 moves
-				if(moves == 10){
-					gameOver(playerOptions,movesLeft);
+				// Calling gameOver function after 5 rounds.
+				if(rounds == 5){
+					gameOver(playerOptions, roundsLeft);
 				}
 			})
 		})
-		
 	}
 
 	// Function to decide winner
 	const winner = (player,computer) => {
-		const result = document.querySelector('.result');
-		const playerScoreBoard = document.querySelector('.p-count');
-		const computerScoreBoard = document.querySelector('.c-count');
 		player = player.toLowerCase();
 		computer = computer.toLowerCase();
 		if(player === computer){
@@ -82,18 +83,13 @@ const game = () => {
 	}
 
 	// Function to run when game is over
-	const gameOver = (playerOptions,movesLeft) => {
-
-		const chooseMove = document.querySelector('.move');
-		const result = document.querySelector('.result');
-		const reloadBtn = document.querySelector('.reload');
-
+	const gameOver = (playerOptions,roundsLeft) => {
 		playerOptions.forEach(option => {
 			option.style.display = 'none';
 		})
 
 		chooseMove.innerText = 'Game Over!!'
-		movesLeft.style.display = 'none';
+		roundsLeft.style.display = 'none';
 
 		if(playerScore > computerScore){
 			result.style.fontSize = '2rem';
