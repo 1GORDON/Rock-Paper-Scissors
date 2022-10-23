@@ -17,7 +17,6 @@ const game = () => {
 	let computerScore = 0;
 	let rounds = 0;
 
-	// Function to
 	const playGame = () => {
 		// Function to start playing game
 		playerOptions.forEach(option => {
