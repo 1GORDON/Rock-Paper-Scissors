@@ -1,100 +1,37 @@
-*{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	background: #48628d;
-	color: #fff;
-}
-/* To center everything in game */
-.game{
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	width: 100vw;
-	justify-content: center;
-	align-items: center;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-/* Title of the game */
-.title{
-	position: absolute;
-	top: 0;
-	font-size: 4rem;
-	z-index: 2;
+.wrapper {
+  background: #1c1c1c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
 }
 
-/* Score Board */
-.score{
-	display: flex;
-	width: 30vw;
-	justify-content: space-evenly;
-	position: absolute;
-	top: 70px;
-	z-index: 1;
+.buttons {
+  display: flex;
+  gap: 20px;
 }
 
-/* Score */
-.p-count,.c-count{
-	text-align: center;
-	font-size: 1.5rem;
-	margin-top: 1rem;
+button {
+  height: 100px;
+  width: 100px;
+  font-size: 48px;
+  border-radius: 30px;
+  cursor: pointer;
 }
 
-/* displaying three buttons in one line */
-.options{
-	display: flex;
-	width: 50vw;
-	justify-content: space-evenly;
-	margin-top: 2rem;
-    animation-duration: 1000ms;
-}
-
-/* Styling on all three buttons */
-.rock, .paper, .scissor{
-	padding: 0.8rem;
-	width: 100px;
-	border-radius: 10px;
-	background: rgb(2, 20, 80);
-	outline: none;
-	border-color: rgb(231, 231, 238);
-	border: 1px solid rgb(231, 231, 238);
-	cursor: pointer;
-}
-
-.move{
-	font-size: 2rem;
-	font-weight: bold;
-}
-
-/* Reload button style */
-.reload {
-	display: none;
-	margin-top: 2rem;
-	padding: 1rem;
-	background: green;
-	outline: none;
-	border: none;
-	border-radius: 10px;
-	cursor: pointer;
-}
-
-.result{
-	margin-top: 20px;
-	font-size: 1.2rem;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 612px)
-{
-	.title{
-		text-align: center;
-	}
-	.score{
-		position: absolute;
-		top: 200px;
-		width: 100vw;
-	}
-	.options{
-		width: 100vw;
-	}
+.resultContainer {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
 }

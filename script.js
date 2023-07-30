@@ -1,116 +1,55 @@
-const rockBtn = document.querySelector('.rock');
-const paperBtn = document.querySelector('.paper');
-const scissorBtn = document.querySelector('.scissor');
-const playerOptions = [rockBtn,paperBtn,scissorBtn];
-const computerOptions = ['rock','paper','scissors']
+/*
+  Rock Paper Scissors 🚀🔥
+  Concepts covered in this project
+    👉 For loops
+    👉 Dom Manipulation
+    👉 Variables
+    👉 Conditionals (if else if)
+    👉 Template Literals
+    👉 Event Listeners
+    👉 Higher order Function (Math.random())
+*/
 
-const result = document.querySelector('.result');
-const playerScoreBoard = document.querySelector('.player-count');
-const computerScoreBoard = document.querySelector('.computer-count');
-const roundsLeft = document.querySelector('.roundsleft');
-const chooseMove = document.querySelector('.move');
-const reloadBtn = document.querySelector('.reload');
+// ** getComputerChoice randomly selects between `rock` `paper` `scissors` and returns that string **
+// getComputerChoice() 👉 'Rock'
+// getComputerChoice() 👉 'Scissors'
+function getComputerChoice() {}
 
-// Complete logic of game inside this function
-const game = () => {
-	let playerScore = 0;
-	let computerScore = 0;
-	let rounds = 0;
-
-	const playGame = () => {
-		// Function to start playing game
-		playerOptions.forEach(option => {
-			option.addEventListener('click',function(){
-				rounds++;
-				roundsLeft.innerText = `Rounds Left: ${5-rounds}`;
-				
-				const computerChoice = computerOptions[Math.floor(Math.random()*3)];
-
-				// Function to check who wins
-				winner(this.innerText,computerChoice)
-				
-				// Calling gameOver function after 5 rounds.
-				if(rounds == 5){
-					gameOver(playerOptions, roundsLeft);
-				}
-			})
-		})
-	}
-
-	// Function to decide winner
-	const winner = (player,computer) => {
-		player = player.toLowerCase();
-		computer = computer.toLowerCase();
-		if(player === computer){
-			result.textContent = 'Tie'
-		}
-		else if(player == 'rock'){
-			if(computer == 'paper'){
-				result.textContent = 'Computer Won';
-				computerScore++;
-				computerScoreBoard.textContent = computerScore;
-
-			}else{
-				result.textContent = 'Player Won'
-				playerScore++;
-				playerScoreBoard.textContent = playerScore;
-			}
-		}
-		else if(player == 'scissors'){
-			if(computer == 'rock'){
-				result.textContent = 'Computer Won';
-				computerScore++;
-				computerScoreBoard.textContent = computerScore;
-			}else{
-				result.textContent = 'Player Won';
-				playerScore++;
-				playerScoreBoard.textContent = playerScore;
-			}
-		}
-		else if(player == 'paper'){
-			if(computer == 'scissors'){
-				result.textContent = 'Computer Won';
-				computerScore++;
-				computerScoreBoard.textContent = computerScore;
-			}else{
-				result.textContent = 'Player Won';
-				playerScore++;
-				playerScoreBoard.textContent = playerScore;
-			}
-		}
-	}
-
-	// Function to run when game is over
-	const gameOver = (playerOptions,roundsLeft) => {
-		playerOptions.forEach(option => {
-			option.style.display = 'none';
-		})
-
-		chooseMove.innerText = 'Game Over!!'
-		roundsLeft.style.display = 'none';
-
-		if(playerScore > computerScore){
-			result.style.fontSize = '2rem';
-			result.innerText = 'You Won The Game'
-			result.style.color = '#308D46';
-		}
-		else if(playerScore < computerScore){
-			result.style.fontSize = '2rem';
-			result.innerText = 'You Lost The Game';
-			result.style.color = 'red';
-		}
-		else{
-			result.style.fontSize = '2rem';
-			result.innerText = 'Tie';
-			result.style.color = 'grey'
-		}
-		reloadBtn.innerText = 'Restart';
-		reloadBtn.style.display = 'flex'
-		reloadBtn.addEventListener('click',() => {
-			window.location.reload();
-		})
-	}
-	playGame();
+// ** getResult compares playerChoice & computerChoice and returns the score accordingly **
+// human wins - getResult('Rock', 'Scissors') 👉 1
+// human loses - getResult('Scissors', 'Rock') 👉 -1
+// human draws - getResult('Rock', 'Rock') 👉 0
+function getResult(playerChoice, computerChoice) {
+  // return the result of score based on if you won, drew, or lost
+  // All situations where human draws, set `score` to 0
+  // All situations where human wins, set `score` to 1
+  // make sure to use else ifs here
+  // Otherwise human loses (aka set score to -1)
+  // return score
 }
 
-game();
+// ** showResult updates the DOM to `You Win!` or `You Lose!` or `It's a Draw!` based on the score. Also shows Player Choice vs. Computer Choice**
+function showResult(score, playerChoice, computerChoice) {
+  // Hint: on a score of -1
+  // You should do result.innerText = 'You Lose!'
+  // Don't forget to grab the div with the 'result' id!
+}
+
+// ** Calculate who won and show it on the screen **
+function onClickRPS(playerChoice) {}
+
+// ** Make the RPS buttons actively listen for a click and do something once a click is detected **
+function playGame() {
+  // use querySelector to select all RPS Buttons
+  // * Adds an on click event listener to each RPS button and every time you click it, it calls the onClickRPS function with the RPS button that was last clicked *
+  // 1. loop through the buttons using a forEach loop
+  // 2. Add a 'click' event listener to each button
+  // 3. Call the onClickRPS function every time someone clicks
+  // 4. Make sure to pass the currently selected rps button as an argument
+  // Add a click listener to the end game button that runs the endGame() function on click
+}
+
+// ** endGame function clears all the text on the DOM **
+function endGame() {}
+
+playGame();
